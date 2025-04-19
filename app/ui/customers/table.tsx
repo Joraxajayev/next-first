@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
 import {
   CustomersTableType,
@@ -13,7 +12,7 @@ export default async function CustomersTable({
 }) {
   return (
     <div className="w-full">
-      <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
+      <h1 className={` mb-8 text-xl md:text-2xl`}>
         Customers
       </h1>
       <Search placeholder="Search customers..." />
@@ -41,7 +40,7 @@ export default async function CustomersTable({
                             <p>{customer.name}</p>
                           </div>
                         </div>
-                        <p className="text-sm text-gray-500">
+                        <p className={` text-sm text-gray-500`}>
                           {customer.email}
                         </p>
                       </div>
