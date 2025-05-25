@@ -1,0 +1,33 @@
+-- First check if services table exists, if not create it
+CREATE TABLE IF NOT EXISTS services (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  icon VARCHAR(100),
+  category VARCHAR(100),
+  popularity INTEGER DEFAULT 0,
+  is_popular BOOLEAN DEFAULT false,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Clear existing data to avoid duplicates
+DELETE FROM services;
+
+-- Insert seed data
+INSERT INTO services (name, description, icon, category, popularity, is_popular) VALUES
+('Pasport olish', 'Fuqarolik pasportini rasmiylashtirish va olish', 'FileText', 'documents', 100, true),
+('Tug''ilganlik haqida guvohnoma', 'Tug''ilganlik haqida guvohnoma olish', 'FileText', 'documents', 95, true),
+('Nikoh qayd etish', 'Nikohni rasmiy qayd etish', 'Heart', 'family', 90, true),
+('Tadbirkorlik ro''yxatdan o''tkazish', 'Yangi tadbirkorlik sub''ektini ro''yxatdan o''tkazish', 'Briefcase', 'business', 85, true),
+('Haydovchilik guvohnomasi', 'Haydovchilik guvohnomasi olish yoki almashtirish', 'Car', 'transport', 80, true),
+('Soliq deklaratsiyasi', 'Yillik daromad deklaratsiyasini topshirish', 'FileText', 'finance', 75, true),
+('Pensiya hisoblash', 'Pensiya miqdorini hisoblash va rasmiylashtirish', 'Calculator', 'finance', 70, true),
+('Kommunal to''lovlar', 'Kommunal xizmatlar uchun to''lovlarni amalga oshirish', 'Home', 'property', 65, true),
+('Tibbiy sug''urta', 'Tibbiy sug''urta polisini rasmiylashtirish', 'Activity', 'health', 60, true),
+('Maktabga ro''yxatdan o''tkazish', 'Bolani maktabga ro''yxatdan o''tkazish', 'GraduationCap', 'education', 55, true),
+('Mulk ro''yxatdan o''tkazish', 'Ko''chmas mulkni ro''yxatdan o''tkazish', 'Building', 'property', 50, true),
+('Viza rasmiylashtirish', 'Chet el vizasini rasmiylashtirish', 'Globe', 'documents', 45, true),
+('Biznes litsenziyasi', 'Biznes faoliyati uchun litsenziya olish', 'Award', 'business', 40, true),
+('Ijtimoiy yordam', 'Ijtimoiy yordam va nafaqalarni rasmiylashtirish', 'Heart', 'family', 35, true),
+('Soliq raqami olish', 'Soliq to''lovchining identifikatsion raqamini olish', 'Hash', 'finance', 30, true);
